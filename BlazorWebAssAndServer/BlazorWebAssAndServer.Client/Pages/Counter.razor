@@ -15,6 +15,7 @@
 <h1>Counter</h1>
 
 <SfGrid ID="Grid" @ref="PersonGrid" AllowGrouping="true" AllowPaging="false" AllowFiltering="true" AllowSorting="true" DataSource="@list" EnableVirtualization="true" EnableVirtualMaskRow="true" Height="550" RowHeight="38" OverscanCount="60">
+    <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Excel"></GridFilterSettings>
     <GridColumns>
         <GridColumn HeaderText="Name" Field="@nameof(Person.Name)"></GridColumn>
         <GridColumn HeaderText="Surname" Field="@nameof(Person.Surname)"></GridColumn>

@@ -15,7 +15,8 @@ builder.Services.AddScoped(http=> new HttpClient
 });
 
 builder.Services.AddSyncfusionBlazor();
+SyncfusionLicenseProvider.RegisterLicense("MzIxNzg2N0AzMjM1MmUzMDJlMzBqOWpHZ0tBNGRjbkFycmZESjBLVEVUOGMyemF6SmJ0NTc3by9aeGRpQktVPQ==");
 
 await builder.Build().RunAsync();
 
-SyncfusionLicenseProvider.RegisterLicense("MzIxNzg2N0AzMjM1MmUzMDJlMzBqOWpHZ0tBNGRjbkFycmZESjBLVEVUOGMyemF6SmJ0NTc3by9aeGRpQktVPQ==");
+
