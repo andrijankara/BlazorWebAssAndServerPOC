@@ -45,7 +45,7 @@ namespace BlazorWebAssAndServer.Controllers
             List<Person> people = new List<Person>();
             Random rand = new Random();
 
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 15000; i++)
             {
                 string name = names[rand.Next(names.Length)];
                 string surname = surnames[rand.Next(surnames.Length)];
