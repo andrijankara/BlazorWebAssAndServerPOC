@@ -14,7 +14,7 @@
 
 <h1>Counter</h1>
 
-<SfGrid ID="Grid" @ref="PersonGrid" AllowGrouping="true" AllowPaging="false" AllowFiltering="true" AllowSorting="true" DataSource="@list" EnableVirtualization="true" EnableVirtualMaskRow="true" Height="550" RowHeight="38" OverscanCount="60">
+<SfGrid ID="Grid" @ref="PersonGrid" AllowGrouping="true"  AllowPaging="true" ShowColumnChooser="true" AllowFiltering="true" AllowSorting="true" DataSource="@list"  Toolbar="@toolbar">
     <GridFilterSettings Type="Syncfusion.Blazor.Grids.FilterType.Excel"></GridFilterSettings>
     <GridColumns>
         <GridColumn HeaderText="Name" Field="@nameof(Person.Name)"></GridColumn>
@@ -28,6 +28,13 @@
 
     public List<Person> list { get; set; } = new();
 
+    private List<object> toolbar = new List<object>
+    {
+        "ExcelExport",
+        "Search",
+        "ColumnChooser"
+    };
+
     protected override async Task OnInitializedAsync()
     {
         HttpResponseMessage response = await httpClient.GetAsync("api/Person");
@@ -38,10 +45,10 @@
             // Read response content as JSON
             string responseBody = await response.Content.ReadAsStringAsync();
 
-            var a = JsonConvert.DeserializeObject<List<Person>>(responseBody);
+            var dataList = JsonConvert.DeserializeObject<List<Person>>(responseBody);
 
             // Deserialize JSON into MyData object
-            list = a;
+            list = dataList;
 
         }
          base.OnInitializedAsync();
